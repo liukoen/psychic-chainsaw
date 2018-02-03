@@ -1,7 +1,11 @@
 ---
 driver:
   name: vagrant
-
+#   driver:
+#     customize :
+#        modifyvm :
+#            -usb: on
+#            -usbehci: off
 provisioner:
   name: chef_zero
   # You may wish to disable always updating cookbooks in CI or other testing environments.
@@ -14,6 +18,11 @@ verifier:
 
 platforms:
   - name: lejer/kali
+    driver:
+      customize:
+            usb: "off" 
+            usbehci: "off"
+            gui: "true" 
   - name: virender/Windows10 
 suites:
   - name: default
